@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Review Page</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+
+      <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+</head>
+
+<body>
+  <div class="table-users">
+   <div class="header">results_data</div>
+
+   <table cellspacing="0">
+      <tr>
+          <th>Channel_name</th>
+          <th>Video_title</th>
+          <th>Num Views</th>
+          <th>Num Likes</th>
+          <th>Num Subscribers</th>
+          <th>Num Comments</th>
+          <th>video_link</th>
+          <th>Publish Date</th>
+          <th>Commenter's Name</th>
+
+      </tr>
+         {% for result in results_data %}
+      <tr>
+         <td>{{result['Channel_name']}}</td>
+         <td>{{result['Video_title']}}</td>
+         <td>{{result['Num Views']}}</td>
+         <td>{{result['Num Likes']}}</td>
+         <td>{{result['Num Subscribers']}}</td>
+         <td>{{result['Num Comments']}}</td>
+         <td>{{result['video_link']}}</td>
+         <td>{{result['Publish Date']}}</td>
+         <td>{{result["Commenter's Name"]}}</td>
+      </tr>
+       {% endfor %}
+
+   </table>
+</div>
+
+</body>
+
+
+</html>
+

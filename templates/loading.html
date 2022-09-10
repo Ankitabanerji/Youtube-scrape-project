@@ -1,0 +1,22 @@
+<html>
+<body>
+<div>Loading Data Please wait...!!</div>
+</body>
+<script>
+var myInterval = setInterval(fetchData, 30000);
+function fetchData() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    response = JSON.parse(this.responseText)
+    if (response.status == true) {
+      clearInterval(myInterval)
+      window.open('/show_result',"_self")
+    }
+   }
+  };
+  xhttp.open("POST", "/get_video_data", true);
+  xhttp.send();
+}
+</script>
+</html>

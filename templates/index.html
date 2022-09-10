@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Search Page</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div id="table-content" class="content" style="display: block">
+    <h1 style="text-align: center">Search</h1>
+
+    <div class="form">
+        <form action="/loading" method="POST">
+            <input type="text" name="channel_link" id="channel_link">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+</div>
+{% endblock %}
