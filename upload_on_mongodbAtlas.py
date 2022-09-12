@@ -53,7 +53,7 @@ def download_image(title, url):
 
 
 def upload_on_mongodb(all_data):
-    """Storing retrieved data on mondodb"""
+    """Storing retrieved data on mongodb"""
     print("mongodb all_data", all_data)
 
     # Storing user comments details in table Users_comments_details

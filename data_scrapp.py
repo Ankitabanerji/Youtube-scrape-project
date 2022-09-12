@@ -49,8 +49,7 @@ def fetch_video_details(driver_name: webdriver):
             num_comments = 0
             print("No comments found for {}".format(title))
     except Exception as e:
-        print(title, num_comments)
-        print(e)
+        logging.info(e)
 
     return channel_name, title, views, likes, subscribers, num_comments, date
 
@@ -136,7 +135,7 @@ def scrape_youtube_data(link: str):
                                            '1]/ytd-grid-video-renderer'))
     counter = 1
 
-    while counter <= 10 and counter <= video_count:
+    while counter <= 1 and counter <= video_count:
         logging.info('scrapping data')
         base_link = "//ytd-item-section-renderer/div[3]/ytd-grid-renderer/div[1]/ytd-grid-video-renderer" + "[" + \
                     str(counter) + "]"

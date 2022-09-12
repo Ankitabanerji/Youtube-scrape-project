@@ -42,6 +42,7 @@ def upload_on_snowflake(data):
             values = []
             for d in data['data']:
                 d['Video_title'] = re.sub('[^a-zA-Z0-9 \n]', '', d['Video_title']).replace('\n', ' ')
+                d['Channel_name'] = re.sub('[^a-zA-Z0-9 \n]', '', d['Channel_name']).replace('\n', ' ')
 
                 val = (d['Channel_name'], d['Video_title'], d['Num Views'], d["Num Likes"]
                        , d["Num Subscribers"], d["Num Comments"], d["video_link"]
@@ -52,7 +53,7 @@ def upload_on_snowflake(data):
             values = ",".join(values)
             insert_q = "insert into youtubeData (Channel_name, Video_title, Num_Views, Num_Likes, Num_Subscribers, " \
                        "num_comments, video_link, Publish_Date, gdrive_link)" \
-                       "values " + str(values) + ";"
+                       " values " + str(values) + ";"
             execute_query(con_eb, insert_q)
 
         except Exception as e:

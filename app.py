@@ -29,6 +29,7 @@ def index():
     if request.method == 'POST':
         channel_link = request.form['channel_link']
 
+        # Flask-Executor is a Flask extension that makes it easy to work with concurrent.futures in your application.
         executor.submit(scrape_youtube_data, channel_link)
 
         return render_template('loading.html')

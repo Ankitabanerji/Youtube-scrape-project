@@ -9,14 +9,16 @@ logging.basicConfig(level=logging.DEBUG)
 def upload_operations(alldata):
     idx = 0
 
-    # downloading and uploading video on google drive and retrieving the drive link
-    logging.info("started uploading on gdrive")
-    while idx < len(alldata['data']):
-        gdrive_link = download_video(alldata['data'][idx]['video_link'], alldata['data'][idx]['Video_title'])
-        alldata['data'][idx]['gdrive_link'] = gdrive_link
-        idx += 1
-    print(alldata)
-    logging.info("done uploading on gdrive")
+    try:
+        # downloading and uploading video on Google Drive and retrieving the drive link
+        logging.info("started uploading on gdrive")
+        while idx < len(alldata['data']):
+            gdrive_link = download_video(alldata['data'][idx]['video_link'], alldata['data'][idx]['Video_title'])
+            alldata['data'][idx]['gdrive_link'] = gdrive_link
+            idx += 1
+        logging.info("done uploading on gdrive")
+    except Exception as e:
+        logging.info(e)
 
     # storing data on mongodb(thumbnail images and commenter's details)
     logging.info("started uploading on mongodb")
