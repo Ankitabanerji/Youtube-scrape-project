@@ -135,7 +135,8 @@ def scrape_youtube_data(link: str):
                                            '1]/ytd-grid-video-renderer'))
     counter = 1
 
-    while counter <= 1 and counter <= video_count:
+    # scrapping for 10 videos
+    while counter <= 10 and counter <= video_count:
         logging.info('scrapping data')
         base_link = "//ytd-item-section-renderer/div[3]/ytd-grid-renderer/div[1]/ytd-grid-video-renderer" + "[" + \
                     str(counter) + "]"
